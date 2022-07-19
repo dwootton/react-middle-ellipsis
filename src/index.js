@@ -67,7 +67,9 @@ const ellipse = (parentNode, childNode, txtNode, onTruncate) => {
     txtNode.setAttribute("data-original", txtNode.textContent);
     txtNode.textContent =
       str.substr(0, endLeft) + "..." + str.substr(startRight);
-    onTruncate();
+    onTruncate(true);
+  } else {
+    onTruncate(false)
   }
 };
 
