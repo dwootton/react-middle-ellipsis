@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 
 const Component = props => {
+  console.log('in component from dywootto', props)
   const prepEllipse = node => {
       const parent = node.parentNode;
       const child =
