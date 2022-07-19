@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 
 const Component = props => {
-  console.log('in component from dywootto', props)
   const prepEllipse = node => {
       const parent = node.parentNode;
       const child =
@@ -68,9 +67,13 @@ const ellipse = (parentNode, childNode, txtNode, onTruncate) => {
     txtNode.setAttribute("data-original", txtNode.textContent);
     txtNode.textContent =
       str.substr(0, endLeft) + "..." + str.substr(startRight);
-    onTruncate(true);
+    if (onTruncate) {
+      onTruncate(true);
+    }
   } else {
-    onTruncate(false)
+    if (onTruncate) {
+      onTruncate(false);
+    }
   }
 };
 
