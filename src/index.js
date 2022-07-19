@@ -21,7 +21,8 @@ const Component = props => {
           // Use the smaller width.
           node.offsetWidth > parent.offsetWidth ? parent : node,
           child,
-          txtToEllipse
+          txtToEllipse,
+          props.onTruncate
         );
       }
     },
@@ -48,7 +49,7 @@ const Component = props => {
   );
 };
 
-const ellipse = (parentNode, childNode, txtNode) => {
+const ellipse = (parentNode, childNode, txtNode, onTruncate) => {
   const childWidth = childNode.offsetWidth;
   const containerWidth = parentNode.offsetWidth;
   const txtWidth = txtNode.offsetWidth;
@@ -66,6 +67,7 @@ const ellipse = (parentNode, childNode, txtNode) => {
     txtNode.setAttribute("data-original", txtNode.textContent);
     txtNode.textContent =
       str.substr(0, endLeft) + "..." + str.substr(startRight);
+    onTruncate();
   }
 };
 
